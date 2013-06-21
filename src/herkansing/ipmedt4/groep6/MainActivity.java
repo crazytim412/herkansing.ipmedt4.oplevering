@@ -40,7 +40,10 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity 
 {
-
+	
+	//maak 2 arraylisten aan voor de knoppen en evenementen
+	//De rest zijn speciale ints en hij roept de nieuwe klasse aan
+	
 	TextView txt;
 	Button button;
 	JSONArray jArray;
@@ -54,13 +57,7 @@ public class MainActivity extends Activity
 	Acts acts;
 	int id;
 	
-	/**
-	 * 
-	 * 
-	 * In de onCreate wordt alles gemaakt, waaronder de knoppen
-	 * 
-	 *
-	 */
+	// Duncan
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
@@ -68,43 +65,66 @@ public class MainActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		// declareer de arraylists en de klasse
+		
 		knoppen = new ArrayList<Button>();
 		evenementen = new ArrayList<String>();
 		acts = new Acts();
 		
+		// maak zolang het resultaat op het scherm past een listview aan
+		// en vul deze met de resultaten uit de arraylist
+		// dit staat nog in debug mode, met vastte waardes
 		
 		for (int i = 0; i < 7; i++) 
 	    {
-	    	RelativeLayout rl = (RelativeLayout) findViewById(R.id.RL1);
+	    	RelativeLayout rl = (RelativeLayout) findViewById(R.id.RL1); // vindt de layout
+	    	
+	    	//maak de knop aan
+	    	
 	    	button = new Button(this);
-	        //button.setText("Evenement" + i);
+//	        button.setText("Evenement" + i);	Debug
 	        button.setId(buttonid);
 	        buttonid++;
 	        int width = 1000;
 	        int height = 100;
 	        
-//	        button.setText(result);
+//	        button.setText(result); 	Debug
+	        
+	        // voeg de knop toe aan de layout
 	        
 	        knoppen.add(button);
+	        
+	        // geeft de button een mooie style
 	        
 	        button.setBackgroundColor(Color.TRANSPARENT);
 	        button.setBackgroundResource(R.drawable.rectangle);
 	       
+	        // handel de button pressed af
+	        
 	        button.setOnClickListener(new Button.OnClickListener() {
 			@Override
-				public void onClick(View arg0) {
+				public void onClick(View arg0) 
+				{
+				
+				// kijk welke button ingedrukt is
+				// Dit roept de goede query aan in de acts klasse
 				
 				id = button.getId();
 				acts.setButtonId(id);
-				
-				// TODO Auto-generated method stub		
+					
 		    		Intent intent = new Intent();
 		    		intent.setClass(getApplicationContext(), Acts.class);
 		    		startActivity(intent); 
 					}
 		    	});
 	        
-	    	
+	        	// Einde Duncan
+	    		// Deborah
+	        
+	        	// Geef de relative layout de waardes, zodat alles goed staat
+	        	// Daarna zet ik de button goed erin met de Rules en Margins
+	        	// Als I groter of kleiner is dan 0, dan wordt het scherm aangepast
+	        
 	        	if (i == 0) 
 	        	{
 	            
@@ -116,7 +136,10 @@ public class MainActivity extends Activity
 	            rlp1.bottomMargin = 10;
 	            button.setLayoutParams(rlp1);
 	            rl.addView(button, rlp1); 
-	        	} else {
+	        	}
+	        	
+	        	else 
+	        	{
 	            
 	            RelativeLayout.LayoutParams rlp1 = new RelativeLayout.LayoutParams(
 	                    width, height);
@@ -127,35 +150,31 @@ public class MainActivity extends Activity
 	            rl.addView(button, rlp1);
 	        	}
 	    	}
+		
+		// Roep de methode aan die de webserver aanroept
 
 		new ShowDialogAsyncTask().execute();   	
 	}
 
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) 
-//    {
-//    // Inflate the menu; this adds items to the action bar if it is present.
-//    getMenuInflater().inflate(R.menu.main, menu);
-//    return true;
-//    }
-
-	/**
-	 * 
-	 * 
-	 * Dit is de AsyncTask waarin de netwerk taken worden gedaan
-	 *
-	 */
+	// Einde Deborah
+	// Duncan
+	
 	private class ShowDialogAsyncTask extends AsyncTask<Void, Void, String>
 	{
 		
+		// Een asynctask is een methode om een network thread te draaien op
+		// hoofdklasse. Het heeft 3 methodes, maar kan er ook 4 hebben.
 
 		@Override
 		protected void onPreExecute() {
-			// update the UI immediately after the task is executed
+			
+			// Update de tekst op het scherm, zodra de methode wordt aangeroepen
+			// zolang de positie binnen de arraylist valt, wordt de tekst aangehouden
+			// Zodra de lijst volledig is, wordt de postExecute aangeroepen
+			
 			super.onPreExecute();
 			
-			// debug Log.i("test","pre-execute");
+			// debug Log.i("test","pre-execute");	Voor LogCat
 			
 			for(int pos = 0; pos < knoppen.size(); pos++)
 		   	 {
@@ -165,20 +184,31 @@ public class MainActivity extends Activity
 		     }
 		}
 
+		// Hierin wordt de webserver aangeroepen, HTTP Post en Get sturen een
+		// verzoek naar een bestand en halen het resultaat terug
+		// De query zit voor de evenementen in de eve.php op de webserver
+		
 		@Override
 		protected String doInBackground(Void... params) {
 
-			// debug Log.i("test","background");
+			// debug Log.i("test","background");	Voor LogCat
 
 			InputStream is = null;
 
 			String result = "";
-			//data to send
+			
+			// Dit is nodig om aan te sturen, maar in deze klasse 
+			// heeft het geen nut, in de andere klassen stuur ik de button id mee, om
+			// het goeie evenementen terug te halen
+			
 			ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 			nameValuePairs.add(new BasicNameValuePair("test","test"));
 
 
-			//http post
+			// http post, hierin wordt de bestand aangeroepen, zoals eerder gezegd
+			// De try is altijd nodig om fouten af te handelen, anders kan de app en de
+			// server crashen
+			
 			try{
 				HttpClient httpclient = new DefaultHttpClient();
 				HttpPost httppost = new HttpPost("http://api.evenementenmail.nl/eve.php");
@@ -186,14 +216,17 @@ public class MainActivity extends Activity
 				HttpResponse response = httpclient.execute(httppost);
 				HttpEntity entity = response.getEntity();
 				is = entity.getContent();
-
-
-			}catch(Exception e){
-				Log.e("log_tag", "Error in http connection "+e.toString());
+			}
+			
+			catch(Exception e)
+			{
+				Log.e("log_tag", "Error in http connection "+e.toString()); // Voor LogCat
 			}
 
 
-			//convert response to string
+			// Gelijk met de get krijgen we een resultaat. hierin wordt het resultaat omgezet
+			// naar een string, via een Stringbuilder
+			
 			try{
 				BufferedReader reader = new BufferedReader(new InputStreamReader(is,"iso-8859-1"),8);
 				StringBuilder sb = new StringBuilder();
@@ -203,17 +236,20 @@ public class MainActivity extends Activity
 				}
 				is.close();
 				result=sb.toString();
-			}catch(Exception e){
+			}
+			catch(Exception e)
+			{
 				Log.e("log_tag", "Error converting result "+e.toString());
 			}
-			//parse json data
+			
+			// Hier parsen ik de json data, Vanuit de jArray wordt het omgezet in een arraylist
+			// Ook trimmen we het resultaat, zodat de Json tekens wegvallen
+			
 			String returnString = "";
-			try{
+			try
+			{
 				jArray = new JSONArray(result);
 				for(int i=0;i<jArray.length();i++){
-					//JSONObject json_data = jArray.getJSONObject(i);
-					//Log.i("log_tag"," name: "+json_data.getString("naam")  );
-					//Get an output to the screen
 					returnString += jArray.getJSONObject(i).getString("naam");
 					returnString = returnString.trim();
 				}
@@ -223,15 +259,18 @@ public class MainActivity extends Activity
 			return returnString; 
 		}  
 	
+		// Zodra de arraylist gevuld is, wordt de arraylist uitgelezen en omgezet
+		// naar de textviews. Voor de zekerheid trim ik hier nog een keer en replace
+		// ik de rest van de tekens
+		
 		@Override
 		protected void onPostExecute(String result) {
 			super.onPostExecute(result);
 			
 			result = result.trim();
 			
-			// debug Log.i("test","POST");
-			
-			//JSONArray jsonArray = (JSONArray)jArray; 
+			// debug Log.i("test","POST");	Voor LogCat
+
 			if (jArray != null) { 
 			   int len = jArray.length();
 			   for (int i=0;i<len;i++){ 
@@ -245,12 +284,13 @@ public class MainActivity extends Activity
 				}
 			    catch (JSONException e)
 			    {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			  } 
 			}
 			
+			// geef elke button een eigen Unieke ID voor de hierboven aangegeven
+			// button pressed.
 			
 		for(int pos = 0; pos < knoppen.size(); pos++)
 	   	 {

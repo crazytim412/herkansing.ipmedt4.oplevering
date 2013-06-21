@@ -22,6 +22,8 @@ import android.widget.TextView;
  *
  */
 
+// Deborah en Duncan
+
 public class LosseActs extends Activity
 {
     TextView naam;
@@ -39,6 +41,8 @@ public class LosseActs extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.losseacts);
         
+        // Vind alle goede textviews en geeft hem een variabelen
+        
         naam = (TextView)findViewById(R.id.naam);
         begintijd = (TextView)findViewById(R.id.begintijd);
         eindtijd = (TextView)findViewById(R.id.eindtijd);
@@ -47,8 +51,12 @@ public class LosseActs extends Activity
         rating = (TextView)findViewById(R.id.rating);
         genre = (TextView)findViewById(R.id.genre);
         
+        // maak een nieuwe arraylist aan voor de tekst
+        
         tekst = new ArrayList<String>();
 
+        // Kijk welke imageview wordt ingedrukt
+        
         ImageView imgview1 = (ImageView)findViewById(R.id.ImageView01);
         imgview1.setOnClickListener(new View.OnClickListener() {
         
@@ -79,8 +87,11 @@ public class LosseActs extends Activity
 
 		@Override
 		protected void onPreExecute() {
-			// update the UI immediately after the task is executed
+			
 			super.onPreExecute();
+			
+			// Zet de textviews op de juiste waardes
+			// Dit is nu vaste waarden voor debug mode / prototype
 			
 			naam.setText("Just add Water");
 	        begintijd.setText("13.20");
@@ -91,9 +102,13 @@ public class LosseActs extends Activity
 	        genre.setText("Alternative Rock");
 			
 		}
+		
+		// zie andere klassen wie wat gedaan heeft
+		// en wat het doet
 
 		@Override
-		protected String doInBackground(Void... params) {
+		protected String doInBackground(Void... params) 
+		{
 
 			String returnString = null;
 			// debug Log.i("test","background");
