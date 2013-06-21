@@ -16,31 +16,37 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import android.os.AsyncTask;
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
+import android.os.Bundle;
 import android.util.Log;
+//import android.view.Menu;
 import android.view.View;
+//import android.view.View.OnClickListener;
 import android.widget.Button;
+//import android.widget.ImageButton;
+//import android.widget.ImageView;
+//import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+//import android.widget.LinearLayout.LayoutParams;
 
 /**
  * 
  *
  * @author Duncan Pronk
+ * @author Lisa Uiterwijk
+ * @author Deborah Tjin
  * @version 1.0
  * 
- * De main activity, hier worden de events ingeladen
- * en in knoppen laten zien
+ * hierin worden alle acts gemaakt.
  *
  */
 
-public class MainActivity extends Activity 
+public class Acts extends Activity
 {
-
 	TextView txt;
 	Button button;
 	JSONArray jArray;
@@ -49,18 +55,8 @@ public class MainActivity extends Activity
 	int iz = 1000;
 	int please = 1000;
 	int buttonid = 1000;
-	int buttonidtwee = 1000;
 	int graag = 0;
-	Acts acts;
-	int id;
-	
-	/**
-	 * 
-	 * 
-	 * In de onCreate wordt alles gemaakt, waaronder de knoppen
-	 * 
-	 *
-	 */
+	int stuurid;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
@@ -70,10 +66,8 @@ public class MainActivity extends Activity
 		
 		knoppen = new ArrayList<Button>();
 		evenementen = new ArrayList<String>();
-		acts = new Acts();
 		
-		
-		for (int i = 0; i < 7; i++) 
+		for (int i = 0; i < 5; i++) 
 	    {
 	    	RelativeLayout rl = (RelativeLayout) findViewById(R.id.RL1);
 	    	button = new Button(this);
@@ -93,13 +87,9 @@ public class MainActivity extends Activity
 	        button.setOnClickListener(new Button.OnClickListener() {
 			@Override
 				public void onClick(View arg0) {
-				
-				id = button.getId();
-				acts.setButtonId(id);
-				
 				// TODO Auto-generated method stub		
 		    		Intent intent = new Intent();
-		    		intent.setClass(getApplicationContext(), Acts.class);
+		    		intent.setClass(getApplicationContext(), LosseActs.class);
 		    		startActivity(intent); 
 					}
 		    	});
@@ -127,8 +117,18 @@ public class MainActivity extends Activity
 	            rl.addView(button, rlp1);
 	        	}
 	    	}
+		
 
 		new ShowDialogAsyncTask().execute();   	
+	}
+
+
+	public int setButtonId(int id) {
+	
+		stuurid = id;
+		
+		return stuurid;
+		
 	}
 
 
@@ -140,15 +140,8 @@ public class MainActivity extends Activity
 //    return true;
 //    }
 
-	/**
-	 * 
-	 * 
-	 * Dit is de AsyncTask waarin de netwerk taken worden gedaan
-	 *
-	 */
 	private class ShowDialogAsyncTask extends AsyncTask<Void, Void, String>
 	{
-		
 
 		@Override
 		protected void onPreExecute() {
@@ -181,7 +174,7 @@ public class MainActivity extends Activity
 			//http post
 			try{
 				HttpClient httpclient = new DefaultHttpClient();
-				HttpPost httppost = new HttpPost("http://api.evenementenmail.nl/eve.php");
+				HttpPost httppost = new HttpPost("http://api.evenementenmail.nl/act.php");
 				httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 				HttpResponse response = httpclient.execute(httppost);
 				HttpEntity entity = response.getEntity();

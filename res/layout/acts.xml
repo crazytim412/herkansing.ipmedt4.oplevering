@@ -1,0 +1,395 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+    
+   <!-- 
+   Deborah
+   
+   Ik heb gekozen voor een ScrollView, omdat de lijst groter kan worden dan het scherm
+   Daarnaast een relative layout, omdat anders het lastig wordt om alles precies
+   uit te lijnen
+    -->     
+    
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/achtergrond3"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:focusable="true"              
+    android:focusableInTouchMode="true"
+    tools:context=".MainActivity" >
+
+	<!-- 
+	Deborah en lisa
+	
+	Dit is de naam van de act
+	Hierna komt een linear layout om alles binnen het kader
+	uit te lijnen en netjes te houden voor de listview
+	Dit proces herhalen wij een aantal keer.
+	 -->
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Naam act"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_alignLeft="@+id/linearLayout1"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/rectangle"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:text="Naam act" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Tijd: .... tot ....." />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView3"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="2dp"
+            android:text="Locatie van act" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="-20dp"
+            android:background="@null"
+            android:src="@drawable/hart" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:layout_marginTop="-20dp"
+            android:clickable="true"
+            android:onClick="goMeer"
+            android:text="Meer"
+            android:textColor="#0000ff" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="-15dp"
+            android:text="7" />
+    </LinearLayout>
+
+   <LinearLayout
+       android:id="@+id/linearLayout1"
+       android:layout_width="match_parent"
+       android:layout_height="65dp"
+       android:layout_below="@+id/editText1"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="15dp"
+       android:background="@drawable/rectangle"
+       android:orientation="vertical" >
+
+
+       <TextView
+           android:id="@+id/textView8"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="80dp"
+           android:text="Naam act" />
+      
+
+       <TextView
+           android:id="@+id/textView9"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="5dp"
+           android:text="Tijd: .... tot ....." />
+
+       <TextView
+           android:id="@+id/textView10"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/textView9"
+           android:layout_marginLeft="5dp"
+           android:layout_marginTop="2dp"
+           android:text="Locatie van act" />
+
+
+       <ImageView
+           android:id="@+id/imageView2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="220dp"
+           android:layout_marginTop="-20dp"
+           android:background="@null"
+           android:src="@drawable/hart" />
+
+       <TextView
+           android:id="@+id/textView11"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="110dp"
+           android:layout_marginTop="-20dp"
+           android:clickable="true"
+           android:onClick="goMeer"
+           android:text="Meer"
+           android:textColor="#0000ff" />
+
+       <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="-15dp"
+            android:text="10" />
+       
+   
+
+   </LinearLayout>
+   
+      <LinearLayout
+       android:id="@+id/linearLayout3"
+       android:layout_width="match_parent"
+       android:layout_height="65dp"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="15dp"
+       android:layout_below="@+id/linearLayout2"
+       android:background="@drawable/rectangle"
+       android:orientation="vertical" >
+
+       <TextView
+           android:id="@+id/textView13"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="80dp"
+           android:text="Naam act" />
+
+       <TextView
+           android:id="@+id/textView14"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="5dp"
+           android:text="Tijd: .... tot ....." />
+
+       <TextView
+           android:id="@+id/textView15"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/textView9"
+           android:layout_marginLeft="5dp"
+           android:layout_marginTop="2dp"
+           android:text="Locatie van act" />
+
+       <ImageView
+           android:id="@+id/imageView3"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="220dp"
+           android:layout_marginTop="-20dp"
+           android:background="@null"
+           android:src="@drawable/hart" />
+
+       <TextView
+           android:id="@+id/textView16"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="110dp"
+           android:layout_marginTop="-20dp"
+           android:clickable="true"
+           android:onClick="goMeer"
+           android:text="Meer"
+           android:textColor="#0000ff" />
+
+       <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="-15dp"
+            android:text="10" />
+   </LinearLayout>
+   
+      <LinearLayout
+       android:id="@+id/linearLayout4"
+       android:layout_width="match_parent"
+       android:layout_height="65dp"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="15dp"
+       android:layout_below="@+id/linearLayout3"
+       android:background="@drawable/rectangle"
+       android:orientation="vertical" >
+
+       <TextView
+           android:id="@+id/textView18"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="80dp"
+           android:text="Naam act" />
+
+       <TextView
+           android:id="@+id/textView19"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="5dp"
+           android:text="Tijd: .... tot ....." />
+
+       <TextView
+           android:id="@+id/textView20"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/textView9"
+           android:layout_marginLeft="5dp"
+           android:layout_marginTop="2dp"
+           android:text="Locatie van act" />
+
+       <ImageView
+           android:id="@+id/imageView4"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="220dp"
+           android:layout_marginTop="-20dp"
+           android:background="@null"
+           android:src="@drawable/hart" />
+
+       <TextView
+           android:id="@+id/textView21"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="110dp"
+           android:layout_marginTop="-20dp"
+           android:clickable="true"
+           android:onClick="goMeer"
+           android:text="Meer"
+           android:textColor="#0000ff" />
+
+       <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="-15dp"
+            android:text="10" />
+   </LinearLayout>
+   
+      <LinearLayout
+       android:id="@+id/linearLayout5"
+       android:layout_width="match_parent"
+       android:layout_height="65dp"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="15dp"
+       android:layout_below="@+id/linearLayout4"
+       android:background="@drawable/rectangle"
+       android:orientation="vertical" >
+
+       <TextView
+           android:id="@+id/textView23"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="80dp"
+           android:text="Naam act" />
+
+       <TextView
+           android:id="@+id/textView24"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="5dp"
+           android:text="Tijd: .... tot ....." />
+
+       <TextView
+           android:id="@+id/textView25"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/textView9"
+           android:layout_marginLeft="5dp"
+           android:layout_marginTop="2dp"
+           android:text="Locatie van act" />
+
+       <ImageView
+           android:id="@+id/imageView5"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="220dp"
+           android:layout_marginTop="-20dp"
+           android:background="@null"
+           android:src="@drawable/hart" />
+
+       <TextView
+           android:id="@+id/textView26"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="110dp"
+           android:layout_marginTop="-20dp"
+           android:clickable="true"
+           android:onClick="goMeer"
+           android:text="Meer"
+           android:textColor="#0000ff" />
+
+       <TextView
+            android:id="@+id/textView27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="-15dp"
+            android:text="10" />
+   </LinearLayout>
+
+   <ImageView
+       android:id="@+id/ImageView06"
+       android:layout_width="30dp"
+       android:layout_height="30dp"
+       android:layout_alignParentLeft="true"
+       android:layout_alignParentTop="true"
+       android:src="@drawable/icoon" 
+       android:onClick="goHome"
+       android:clickable="true"/>
+   
+  <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/relativeLayout1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="10dp"
+        android:ems="10" />
+  
+  <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editText1"
+        android:layout_toRightOf="@+id/editText1"
+        android:background="@null"
+        android:onClick="zoekresultaten"
+        android:src="@drawable/zoekknop3" />
+
+ </RelativeLayout>
+      
+
+</ScrollView>

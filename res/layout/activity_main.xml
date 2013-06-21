@@ -1,16 +1,86 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+    
+   <!-- 
+   Deborah
+   
+   Ik heb gekozen voor een ScrollView, omdat de lijst groter kan worden dan het scherm
+   Daarnaast een relative layout, om alles goed neer te zetten, zonder limitaties
+   Focusable zorgt ervoor dat de keyboard verborgen blijft
+    --> 
+    
+   <RelativeLayout
+    android:id="@+id/RL1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/achtergrond3"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".MainActivity" >
 
+	<!--  
+	Deborah
+	
+	De textView is alleen de naam van de rij
+	de editText is het invoervak voor de zoekfunctie
+	 -->
+	 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/editText1"
+        android:text="Evenementen"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-</RelativeLayout>
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/relativeLayout1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="10dp"
+        android:ems="10" />
+
+    <!-- 
+    Deborah en Lisa
+    
+    Dit is de button voor het starten van de zoekfunctie
+    we hebben gekozen voor een image button om mooier te kunnen stijlen
+     -->
+    
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editText1"
+        android:layout_toRightOf="@+id/editText1"
+        android:background="@null"
+        android:onClick="zoekresultaten"
+        android:src="@drawable/zoekknop3" />
+
+    <!-- 
+    Deborah
+    
+    Dit is de homebutton. Met een imageview kunnen we in de java code
+    de button clickable maken.
+     -->
+        
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/icoon" />
+
+	</RelativeLayout>
+</ScrollView>
