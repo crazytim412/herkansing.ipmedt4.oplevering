@@ -1,21 +1,11 @@
 package herkansing.ipmedt4.groep6;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.app.Activity;
-import android.content.Intent;
 
 /**
  * 
- *
  * @author Robin van der Harst
  * @version 1.0
  * 
@@ -23,45 +13,31 @@ import android.content.Intent;
  *
  */
 
+// Robin
+
 public class ToonKaart extends Activity
 {
+
+	// Een webview is een ingebouwde methode om een browser te laten zien binnen in de app
 	
-    WebView browser;
     WebView webView;
 	
-    /**
-     * @param onCreate
-     * 
-     * Hier wordt alles aangeroepen
-     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.toonkaart);
         
-//        ImageView imgview1 = (ImageView)findViewById(R.id.ImageView01);
-//        imgview1.setOnClickListener(new View.OnClickListener() {
-//        
-//        	 @Override
-//             public void onClick(View v) {
-//                 // TODO Auto-generated method stub
-//                Intent intent = new Intent();
-//                intent.setClass(getApplicationContext(), MainActivity.class);
-//                startActivity(intent);
-//             	}
-//         	});
+        // Vindt de webview in de XML
         
 		webView = (WebView) findViewById(R.id.webView1);
+		
+		// Google maps is met Javascript gemaakt
+		// Voor veiligheid heeft Android dat automatisch uitgeschakeld
+		// en geeft het een waarschuwing als je het enabled
+		
 		webView.getSettings().setJavaScriptEnabled(true);
+		
+		// Laadt de url in en laat het zien 
+		
 		webView.loadUrl("http://www.evenementenmail.nl/maps.php");
-		
-/*        Uri uri = Uri.parse("http://www.evenementenmail.nl/maps.php");
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);*/
-		
-
          }
-         
-        
-    
-
 }
