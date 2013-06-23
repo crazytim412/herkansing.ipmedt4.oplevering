@@ -175,8 +175,9 @@ public class LosseActs extends Activity
 
 			//http post
 			try{
+				String url = "http://api.evenementenmail.nl/losseact.php";
 				HttpClient httpclient = new DefaultHttpClient();
-				HttpPost httppost = new HttpPost("http://api.evenementenmail.nl/losseact.php");
+				HttpPost httppost = new HttpPost(url);
 				httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 				HttpResponse response = httpclient.execute(httppost);
 				HttpEntity entity = response.getEntity();
