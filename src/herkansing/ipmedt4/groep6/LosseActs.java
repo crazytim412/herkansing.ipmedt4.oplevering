@@ -1,10 +1,27 @@
 package herkansing.ipmedt4.groep6;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -22,7 +39,7 @@ import android.widget.TextView;
  *
  */
 
-// Deborah en Duncan
+// Deborah en Duncan en Lisa
 
 public class LosseActs extends Activity
 {
@@ -36,7 +53,10 @@ public class LosseActs extends Activity
     ArrayList <String> tekst;
     String naamtekst, begintijdtekst, eindtijdtekst;
     String locatietekst, informatietekst, ratingtekst, genretekst;
-	
+    
+    public JSONArray jArray;
+    public String returnString = null;
+    
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.losseacts);
@@ -51,6 +71,7 @@ public class LosseActs extends Activity
         rating = (TextView)findViewById(R.id.rating);
         genre = (TextView)findViewById(R.id.genre);
         
+                
         // maak een nieuwe arraylist aan voor de tekst
         
         tekst = new ArrayList<String>();
@@ -73,15 +94,41 @@ public class LosseActs extends Activity
 
             @Override
             public void onClick(View v) {
-//               Intent intent = new Intent();
-//               intent.setClass(getApplicationContext(), ToonKaart.class);
-//               startActivity(intent);
+               Intent intent = new Intent();
+             intent.setClass(getApplicationContext(), ToonKaart.class);
+              startActivity(intent);
             	}
         	});
        
        new Async().execute();   	
+       
     }
-
+    
+     /*Lisa; zo'n beetje alles, behalve de hard neergezette waardes, stonden eerst in comment
+   	 door middel van toevoegen van <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+     en 
+    	<activity
+    		android:name="herkansing.ipmedt4.groep6.Acts"
+    		android:label="@string/app_name" >
+    	</activity> 
+    	<activity
+            android:name="herkansing.ipmedt4.groep6.LosseActs"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="herkansing.ipmedt4.groep6.ToonKaart"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="herkansing.ipmedt4.groep6.ToonRoute"
+            android:label="@string/app_name" >
+        </activity>
+    	
+     in de AndroidManifest.xml deed onderstaande code het zonder foutmeldingen en kon ik van pagina
+     naar pagina. Het enige wat er nog niet werkt, is dat er afzonderlijk per act de juiste gegevens
+     worden ingevuld	
+    	*/
+    
     private class Async extends AsyncTask<Void, Void, String>
 	{
 
@@ -93,26 +140,31 @@ public class LosseActs extends Activity
 			// Zet de textviews op de juiste waardes
 			// Dit is nu vaste waarden voor debug mode / prototype
 			
-			naam.setText("Just add Water");
+			// Lisa: even in comment gezet, omdat ik de default wilde zien
+			
+			/*naam.setText("Just add Water");
 	        begintijd.setText("13.20");
 	        eindtijd.setText("13.50");
 	        locatie.setText("Katoenpark");
 	        informatie.setText("Haagse alternatieve rockband");
 	        rating.setText("251");
-	        genre.setText("Alternative Rock");
+	        genre.setText("Alternative Rock");*/
 			
-		}
+						
+		}	
 		
 		// zie andere klassen wie wat gedaan heeft
 		// en wat het doet
 
 		@Override
+		
+		//Duncan
 		protected String doInBackground(Void... params) 
 		{
 
-			String returnString = null;
+			
 			// debug Log.i("test","background");
-/*
+
 			InputStream is = null;
 
 			String result = "";
@@ -153,14 +205,16 @@ public class LosseActs extends Activity
 			String returnString = "";
 			try{
 				jArray = new JSONArray(result);
-				for(int i=0;i<jArray.length();i++){
-					//JSONObject json_data = jArray.getJSONObject(i);
-					//Log.i("log_tag"," name: "+json_data.getString("naam")  );
+				for(int i=0;i<jArray.length();i++)
+				{
+					JSONObject json_data = jArray.getJSONObject(i);
+					Log.i("log_tag"," name: "+json_data.getString("naam")  );
+					
 					//Get an output to the screen					
 				}
 			}catch(JSONException e){
 				Log.e("log_tag", "Error parsing data "+e.toString());
-			}*/
+			}
 			return returnString;
 		}  
 	
@@ -168,7 +222,9 @@ public class LosseActs extends Activity
 		protected void onPostExecute(String result) {
 			super.onPostExecute(result);
 			
-/*			if (jArray != null) { 
+			result = result.trim();
+			
+			if (jArray != null) { 
 				   int len = jArray.length();
 				   for (int i=0;i<len;i++){ 
 				    try {
@@ -176,6 +232,7 @@ public class LosseActs extends Activity
 				    	String aub = ajb.replace("{", "");
 				    	aub = aub.replace("}", "");
 				    	aub = aub.replace("\"", "");
+				    	
 				    	if( i == 0)
 				    	{
 				    	aub = aub.replace("naam:", "");
@@ -221,21 +278,30 @@ public class LosseActs extends Activity
 				}
 			for(int i = 0; i < tekst.size();i++)
 			{
-			    naamtekst = tekst.get(i);
-			    begintijdtekst = tekst.get(i);
-			    eindtijdtekst = tekst.get(i);
-			    locatietekst = tekst.get(i);
-			    informatietekst = tekst.get(i);
-			    ratingtekst = tekst.get(i);
-			    genretekst = tekst.get(i);
+			    naamtekst = tekst.get(i);			   
+			    begintijdtekst = tekst.get(i);			
+			    eindtijdtekst = tekst.get(i);			
+			    locatietekst = tekst.get(i);			    
+			    informatietekst = tekst.get(i);			    
+			    ratingtekst = tekst.get(i);			    
+			    genretekst = tekst.get(i);			    
+			    
 			}
-			naam.setText("Just add Water");
+			
+			//Lisa: in comment gezet omdat ik de default wilde zien
+			// als dit uit de comment wordt gehaald, zie je onderstaande verschijnen op de pagina
+			
+			/*naam.setText("Just add Water");
 	        begintijd.setText("13.20");
 	        eindtijd.setText("13.50");
 	        locatie.setText("Katoenpark");
 	        informatie.setText("Haagse alternatieve rockband");
 	        rating.setText("251");
 	        genre.setText("Alternative Rock");*/
+	        
+	        	
 		}
 	}
+    
+   //Einde Lisa & Duncan
 }   

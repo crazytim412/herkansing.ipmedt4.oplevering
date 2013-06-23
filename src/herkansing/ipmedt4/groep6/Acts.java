@@ -22,6 +22,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -60,6 +61,7 @@ public class Acts extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+	
 		// declareer de arraylists
 		
 		knoppen = new ArrayList<Button>();
@@ -71,7 +73,8 @@ public class Acts extends Activity
 		
 		for (int i = 0; i < 5; i++) 
 	    {
-	    	RelativeLayout rl = (RelativeLayout) findViewById(R.id.RL1);
+			
+			RelativeLayout rl = (RelativeLayout) findViewById(R.id.RL1);
 	    	
 	    	//maak de knop aan
 	    	
@@ -94,7 +97,7 @@ public class Acts extends Activity
 	        button.setBackgroundResource(R.drawable.rectangle);
 	       
 	        // handel de button pressed af
-	        
+	       
 	        button.setOnClickListener(new Button.OnClickListener() {
 			@Override
 				public void onClick(View arg0) 
@@ -156,7 +159,7 @@ public class Acts extends Activity
 	}
 
 	// Einde Deborah
-	// Duncan
+	// Duncan & Lisa
 	
 	private class ShowDialogAsyncTask extends AsyncTask<Void, Void, String>
 	{
@@ -209,9 +212,12 @@ public class Acts extends Activity
 			// De try is altijd nodig om fouten af te handelen, anders kan de app en de
 			// server crashen
 			
+			//Lisa de string url is aangemaakt, om het zo te vergemakkelijken op de regel 218
+			//de url betreft de url waar php code staat
 			try{
+				String url = "http://api.evenementenmail.nl/act.php";
 				HttpClient httpclient = new DefaultHttpClient();
-				HttpPost httppost = new HttpPost("http://api.evenementenmail.nl/act.php");
+				HttpPost httppost = new HttpPost(url);
 				httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 				HttpResponse response = httpclient.execute(httppost);
 				HttpEntity entity = response.getEntity();
@@ -223,7 +229,8 @@ public class Acts extends Activity
 			{
 				Log.e("log_tag", "Error in http connection "+e.toString());	// Voor LogCat
 			}
-
+			//einde Lisa
+			
 			// Gelijk met de get krijgen we een resultaat. hierin wordt het resultaat omgezet
 			// naar een string, via een Stringbuilder
 
