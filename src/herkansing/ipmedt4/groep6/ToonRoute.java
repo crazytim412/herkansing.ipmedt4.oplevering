@@ -40,6 +40,17 @@ public class ToonRoute extends Activity
              	}
          	});
         
+        ImageView imgview2 = (ImageView)findViewById(R.id.ImageView02);
+        imgview2.setOnClickListener(new View.OnClickListener() {
+        
+        	 @Override
+             public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getApplicationContext(), Help.class);
+                startActivity(intent);
+             	}
+         	});
+        
         TextView kaart = (TextView)findViewById(R.id.textView7);
         kaart.setOnClickListener(new View.OnClickListener() {
         

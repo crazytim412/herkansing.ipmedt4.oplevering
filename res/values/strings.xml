@@ -4,5 +4,12 @@
     <string name="app_name">Herkansing ipmedt4 groep 6</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+   
+    <!-- Lisa: onderstaande betreft de informatie van de knop als 
+    de informatie van de text in de AlertDialog -->
+    
+    <string name="knop_werking">Ok</string>
+    <string name="knop_werking_text">U kunt op het moment nog niet zoeken. Dit word zo spoedig mogelijk
+        verholpen.</string>
 
 </resources>

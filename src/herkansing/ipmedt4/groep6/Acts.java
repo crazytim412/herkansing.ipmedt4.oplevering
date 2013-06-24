@@ -15,6 +15,8 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -22,6 +24,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -55,6 +58,7 @@ public class Acts extends Activity
 	int graag = 0;
 	int stuurid;
 	
+		
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
 	{
@@ -70,6 +74,18 @@ public class Acts extends Activity
 		// maak zolang het resultaat op het scherm past een listview aan
 		// en vul deze met de resultaten uit de arraylist
 		// dit staat nog in debug mode, met vastte waardes
+		
+		
+		ImageView imgview1 = (ImageView)findViewById(R.id.ImageView01);
+        imgview1.setOnClickListener(new View.OnClickListener() {
+        
+        	 @Override
+             public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+             	}
+         	});
 		
 		for (int i = 0; i < 5; i++) 
 	    {

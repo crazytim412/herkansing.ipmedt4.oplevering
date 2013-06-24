@@ -88,6 +88,17 @@ public class LosseActs extends Activity
                 startActivity(intent);
              	}
          	});
+        
+        ImageView imgview2 = (ImageView)findViewById(R.id.ImageView02);
+        imgview2.setOnClickListener(new View.OnClickListener() {
+        
+        	 @Override
+             public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getApplicationContext(), Help.class);
+                startActivity(intent);
+             	}
+         	});
        
        Button toonkaart = (Button)findViewById(R.id.button1);
        toonkaart.setOnClickListener(new View.OnClickListener() {

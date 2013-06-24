@@ -40,6 +40,16 @@
         android:layout_alignRight="@+id/editText1"
         android:text="Evenementen"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <ImageView
+       android:id="@+id/ImageView02"
+       android:layout_width="30dp"
+       android:layout_height="30dp"
+       android:layout_alignParentRight="true"
+       android:layout_alignParentTop="true"
+       android:src="@drawable/help" 
+       
+       android:clickable="true"/>
 
     <EditText
         android:id="@+id/editText1"
@@ -75,7 +85,7 @@
      -->
         
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/ImageView01"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignLeft="@+id/editText1"

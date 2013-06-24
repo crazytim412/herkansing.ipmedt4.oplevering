@@ -43,8 +43,8 @@
         android:gravity="center"
         android:text="Naam act"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <LinearLayout
+    
+     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="65dp"
@@ -361,13 +361,23 @@
    </LinearLayout>
 
    <ImageView
-       android:id="@+id/ImageView06"
+       android:id="@+id/ImageView01"
        android:layout_width="30dp"
        android:layout_height="30dp"
        android:layout_alignParentLeft="true"
        android:layout_alignParentTop="true"
        android:src="@drawable/icoon" 
-       android:onClick="goHome"
+       
+       android:clickable="true"/>
+   
+   <ImageView
+       android:id="@+id/ImageView02"
+       android:layout_width="30dp"
+       android:layout_height="30dp"
+       android:layout_alignParentRight="true"
+       android:layout_alignParentTop="true"
+       android:src="@drawable/help" 
+       
        android:clickable="true"/>
    
   <EditText

@@ -86,7 +86,7 @@
           android:layout_centerHorizontal="true"
           android:layout_marginTop="18dp"
           android:clickable="true"
-          android:onClick="toonKaart"
+          
           android:text="Toon kaart"
           android:textColor="#0000ff"
           android:textStyle="bold|italic" />

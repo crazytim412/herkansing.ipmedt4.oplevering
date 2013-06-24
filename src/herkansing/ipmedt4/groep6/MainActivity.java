@@ -19,11 +19,15 @@ import org.json.JSONException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -31,6 +35,7 @@ import android.widget.TextView;
  * 
  *
  * @author Duncan Pronk
+ * @author Lisa Uiterwijk
  * @version 1.0
  * 
  * De main activity, hier worden de events ingeladen
@@ -54,7 +59,7 @@ public class MainActivity extends Activity
 	int buttonid = 1000;
 	int buttonidtwee = 1000;
 	int graag = 0;
-	Acts acts;
+	Acts acts; // Lisa: o.a. voor de AlertDialog
 	int id;
 	
 	// Duncan
@@ -75,6 +80,38 @@ public class MainActivity extends Activity
 		// en vul deze met de resultaten uit de arraylist
 		// dit staat nog in debug mode, met vastte waardes
 		
+		// Lisa: AlertDialog toegevoegd zodat de zoekknop die het niet doet, netjes afgehandeld word d.m.v.
+		// een AlertDialog. 
+		
+		ImageButton imgbutton1 = (ImageButton)findViewById(R.id.imageButton6);
+        imgbutton1.setOnClickListener(new View.OnClickListener() {
+        
+        	 @Override
+             public void onClick(View v) {
+        		//create new AlertDialog 
+        		AlertDialog.Builder alertDialog= new AlertDialog.Builder(MainActivity.this);
+     	        //geef een titel mee
+        		alertDialog.setTitle("Fout");
+        		//geef een icoon mee
+     	        alertDialog.setIcon(R.drawable.icoon);
+     	        //geef een bericht mee
+     	        alertDialog.setMessage(R.string.knop_werking_text);
+     	        //geef de tekst van de knop mee
+     	        alertDialog.setPositiveButton(R.string.knop_werking, new DialogInterface.OnClickListener()
+     	        {
+     	        	public void onClick(DialogInterface dialog, int which)
+     				{
+     					// als er geklikt word, wordt de dialog gesloten
+     	        		dialog.dismiss();
+     					
+     				}
+     	        })
+     	        .show(); 
+        	 }
+         	});
+		// Einde Lisa
+        
+        
 		for (int i = 0; i < 7; i++) 
 	    {
 	    	RelativeLayout rl = (RelativeLayout) findViewById(R.id.RL1); // vindt de layout
@@ -100,6 +137,8 @@ public class MainActivity extends Activity
 	        button.setBackgroundResource(R.drawable.rectangle);
 	       
 	        // handel de button pressed af
+	        
+	        
 	        
 	        button.setOnClickListener(new Button.OnClickListener() {
 			@Override

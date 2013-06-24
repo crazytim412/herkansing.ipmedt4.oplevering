@@ -40,6 +40,10 @@
             android:name="herkansing.ipmedt4.groep6.ToonRoute"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name="herkansing.ipmedt4.groep6.Help"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>
