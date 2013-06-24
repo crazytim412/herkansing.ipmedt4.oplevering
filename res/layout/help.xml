@@ -50,14 +50,14 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />       
 
        
-        <TextView
+		<TextView
         android:id="@+id/dezePagina"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/help"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
-        android:text="Op deze pagina valt te lezen: " />
+        android:text="Op deze pagina valt te lezen: " />       
   
   		  
         

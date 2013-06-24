@@ -81,35 +81,35 @@ public class MainActivity extends Activity
 		// dit staat nog in debug mode, met vastte waardes
 		
 		// Lisa: AlertDialog toegevoegd zodat de zoekknop die het niet doet, netjes afgehandeld word d.m.v.
-		// een AlertDialog. 
-		
-		ImageButton imgbutton1 = (ImageButton)findViewById(R.id.imageButton6);
-        imgbutton1.setOnClickListener(new View.OnClickListener() {
-        
-        	 @Override
-             public void onClick(View v) {
-        		//create new AlertDialog 
-        		AlertDialog.Builder alertDialog= new AlertDialog.Builder(MainActivity.this);
-     	        //geef een titel mee
-        		alertDialog.setTitle("Fout");
-        		//geef een icoon mee
-     	        alertDialog.setIcon(R.drawable.icoon);
-     	        //geef een bericht mee
-     	        alertDialog.setMessage(R.string.knop_werking_text);
-     	        //geef de tekst van de knop mee
-     	        alertDialog.setPositiveButton(R.string.knop_werking, new DialogInterface.OnClickListener()
-     	        {
-     	        	public void onClick(DialogInterface dialog, int which)
-     				{
-     					// als er geklikt word, wordt de dialog gesloten
-     	        		dialog.dismiss();
-     					
-     				}
-     	        })
-     	        .show(); 
-        	 }
-         	});
-		// Einde Lisa
+				// een AlertDialog. 
+				
+				ImageButton imgbutton1 = (ImageButton)findViewById(R.id.imageButton6);
+		        imgbutton1.setOnClickListener(new View.OnClickListener() {
+		        
+		        	 @Override
+		             public void onClick(View v) {
+		        		//create new AlertDialog 
+		        		AlertDialog.Builder alertDialog= new AlertDialog.Builder(MainActivity.this);
+		     	        //geef een titel mee
+		        		alertDialog.setTitle("Fout");
+		        		//geef een icoon mee
+		     	        alertDialog.setIcon(R.drawable.icoon);
+		     	        //geef een bericht mee
+		     	        alertDialog.setMessage(R.string.knop_werking_text);
+		     	        //geef de tekst van de knop mee
+		     	        alertDialog.setPositiveButton(R.string.knop_werking, new DialogInterface.OnClickListener()
+		     	        {
+		     	        	public void onClick(DialogInterface dialog, int which)
+		     				{
+		     					// als er geklikt word, wordt de dialog gesloten
+		     	        		dialog.dismiss();
+		     					
+		     				}
+		     	        })
+		     	        .show(); 
+		        	 }
+		         	});
+				// Einde Lisa
         
         
 		for (int i = 0; i < 7; i++) 
