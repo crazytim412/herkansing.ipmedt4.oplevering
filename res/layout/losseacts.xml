@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:text="Naam evenement"
+        android:text="Naam act"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -93,7 +93,7 @@
         android:src="@drawable/hart" 
         android:background="@null"/>
         
-        <ImageView
+       <ImageView
        android:id="@+id/ImageView01"
        android:layout_width="30dp"
        android:layout_height="30dp"
@@ -112,14 +112,6 @@
        android:src="@drawable/help" 
        
        android:clickable="true"/>
-
-        <TextView
-            android:id="@+id/locatie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textView3"
-            android:layout_alignLeft="@+id/naam"
-            android:text="TextView" />
 
         <TextView
             android:id="@+id/genre"
@@ -166,14 +158,6 @@
             android:text="textview" />
 
         <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/textView3"
-            android:layout_alignRight="@+id/locatie"
-            android:text="Tot" />
-
-        <TextView
             android:id="@+id/eindtijd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -182,6 +166,23 @@
             android:layout_alignRight="@+id/button1"
             android:layout_marginRight="16dp"
             android:text="textview" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textView3"
+            android:layout_alignLeft="@+id/naam"
+            android:text="tot" />
+
+        <TextView
+            android:id="@+id/locatie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView3"
+            android:layout_alignBottom="@+id/textView3"
+            android:layout_alignLeft="@+id/genre"
+            android:text="TextView" />
 
 </RelativeLayout>
 

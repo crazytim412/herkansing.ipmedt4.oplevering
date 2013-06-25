@@ -18,12 +18,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -56,6 +61,10 @@ public class LosseActs extends Activity
     
     public JSONArray jArray;
     public String returnString = null;
+    
+    // Lisa
+ 	private Dialog myDialog;
+ 	// Einde Lisa
     
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,6 +108,30 @@ public class LosseActs extends Activity
                 startActivity(intent);
              	}
          	});
+        
+        // Lisa: Dialog toegevoegd zodat de zoekknop die het niet doet, netjes afgehandeld word d.m.v.
+		// een Dialog. Gekozen voor een Dialog, zodat ik zelf de layout van de dialog kan bepalen.
+		
+		ImageButton myButton = (ImageButton)findViewById(R.id.imageButton1);        
+		myButton.setOnClickListener(new OnClickListener() {        	 
+		@Override
+		    public void onClick(View v) {
+		    	myDialog = new Dialog(LosseActs.this, R.style.FullHeightDialog); // maak nieuw myDialog aan
+		    																		// en haal de default titel weg
+		    	myDialog.setContentView(R.layout.dialograte);
+		    	myDialog.setCancelable(true);
+		        ImageView imageView = (ImageView)myDialog.findViewById(R.id.imageView1);
+		        imageView.setOnClickListener(new OnClickListener() {
+		        @Override
+		            public void onClick(View v) {
+		        	myDialog.dismiss();
+		            }
+		        });
+		
+		        myDialog.show();
+		    }
+		});
+		// Einde Lisa
        
        Button toonkaart = (Button)findViewById(R.id.button1);
        toonkaart.setOnClickListener(new View.OnClickListener() {

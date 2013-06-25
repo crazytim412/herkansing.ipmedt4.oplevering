@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	 android:background="#A3DFBB"
+	 android:layout_width="wrap_content"
+	 android:layout_height="70dp">
+  
+	 <TextView 
+	     android:id="@+id/Tv2"
+		 android:layout_width="wrap_content" 
+		 android:layout_height="wrap_content"
+		 android:textSize="13dp"
+		 android:layout_marginLeft="10dp"
+		 android:layout_marginTop="4dp"
+		 android:layout_toRightOf="@+id/ImageView01"
+		 android:textColor="#000000"
+		 android:text="@string/knop_werking_text1"/>
+ 
+ 	     <ImageView
+		 	android:id="@+id/imageView1"
+		    android:layout_width="wrap_content"
+		    android:layout_height="20dp"
+		    android:layout_below="@+id/Tv2"
+		    android:layout_marginTop="5dp"
+		    android:src="@drawable/rectangle" />
+
+		  <TextView
+		  	android:id="@+id/textView1"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_below="@+id/Tv2"
+		    android:layout_marginTop="5dp"
+		    android:layout_centerHorizontal="true"
+		    android:textColor="#000000"
+		    android:text="@string/knop_werking" />
+		    
+		  <ImageView
+	        android:id="@+id/ImageView01"
+		    android:layout_width="30dp"
+		    android:layout_height="30dp"
+		    android:layout_alignParentTop="true"
+		    android:layout_marginLeft="5dp"
+		    android:layout_marginTop="5dp"
+		    android:src="@drawable/icoon" />
+
+		    
+		
+</RelativeLayout>

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -17,6 +17,13 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     
-   
+
+<style name="MyOpaqueAlertDialog" parent="@android:style/Theme.DeviceDefault.Dialog.MinWidth">
+    <item name="android:background">#A3DFBB</item>
+</style>
+
+<style name="FullHeightDialog" parent="android:style/Theme.Dialog">
+   <item name="android:windowNoTitle">true</item>
+</style> <!-- FullHeightDialog zodat de voorgedefineerde titel word verwijdert -->
 
 </resources>

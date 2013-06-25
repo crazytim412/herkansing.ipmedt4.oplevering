@@ -45,18 +45,7 @@ public class ToonKaart extends Activity
              	}
          	}); 
         
-        ImageView imgview2 = (ImageView)findViewById(R.id.ImageView02);
-        imgview2.setOnClickListener(new View.OnClickListener() {
-        
-        	 @Override
-             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getApplicationContext(), Help.class);
-                startActivity(intent);
-             	}
-         	});
-        
-        
+               
         // Vindt de webview in de XML
         
         // Lisa: hij laat ook de sateliet weergave van Google Maps zien

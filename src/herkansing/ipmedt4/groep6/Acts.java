@@ -16,6 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -23,6 +24,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -58,12 +60,16 @@ public class Acts extends Activity
 	int graag = 0;
 	int stuurid;
 	
+	// Lisa
+	private Dialog myDialog;
+	// Einde Lisa
+	
 		
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.acts);
 		
 	
 		// declareer de arraylists
@@ -75,7 +81,7 @@ public class Acts extends Activity
 		// en vul deze met de resultaten uit de arraylist
 		// dit staat nog in debug mode, met vastte waardes
 		
-		
+		// Lisa: om terug te gaan naar de home pagina
 		ImageView imgview1 = (ImageView)findViewById(R.id.ImageView01);
         imgview1.setOnClickListener(new View.OnClickListener() {
         
@@ -86,7 +92,43 @@ public class Acts extends Activity
                 startActivity(intent);
              	}
          	});
+        //Lisa: om naar de Help pagina te gaan
+        ImageView imgview2 = (ImageView)findViewById(R.id.ImageView02);
+        imgview2.setOnClickListener(new View.OnClickListener() {
+        
+        	 @Override
+             public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getApplicationContext(), Help.class);
+                startActivity(intent);
+             	}
+         	});
+		//Einde: Lisa
+        
+        // Lisa: Dialog toegevoegd zodat de zoekknop die het niet doet, netjes afgehandeld word d.m.v.
+		// een Dialog. Gekozen voor een Dialog, zodat ik zelf de layout van de dialog kan bepalen.
 		
+		ImageButton myButton = (ImageButton)findViewById(R.id.imageButton6);        
+		myButton.setOnClickListener(new OnClickListener() {        	 
+		@Override
+		    public void onClick(View v) {
+		    	myDialog = new Dialog(Acts.this, R.style.FullHeightDialog); // maak nieuw myDialog aan
+		    															   // en haal de default titel weg
+		    	myDialog.setContentView(R.layout.dialogzoek);
+		    	myDialog.setCancelable(true);
+		        ImageView imageView = (ImageView)myDialog.findViewById(R.id.imageView1);
+		        imageView.setOnClickListener(new OnClickListener() {
+		        @Override
+		            public void onClick(View v) {
+		        	myDialog.dismiss();
+		            }
+		        });
+		
+		        myDialog.show();
+		    }
+		});
+		// Einde Lisa
+        
 		for (int i = 0; i < 5; i++) 
 	    {
 			
