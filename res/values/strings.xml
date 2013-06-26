@@ -6,7 +6,7 @@
     <string name="hello_world">Hello world!</string>
    
     <!-- Lisa: onderstaande betreft de informatie van de knop als 
-    de informatie van de text in de AlertDialog -->
+    de informatie van de text in de Dialog -->
     
     <string name="knop_werking">Ok</string>
     <string name="knop_werking_text">
@@ -15,5 +15,17 @@
     <string name="knop_werking_text1">
         U kunt op het moment nog niet raten. \nDit wordt zo spoedig mogelijk verholpen.</string>
         
+    <!-- Lisa: hieronder betreft de tekst naast hetgeen waarover uitleg word gegeven op de Help pagina -->
+    
+    <string name="uitlegHome">De home knop. Een klik erop brengt u terug naar de evenementen pagina</string>
+    <string name="uitlegHelp">De help knop. Een klik erop brengt u naar de help pagina</string>
+    <string name="uitlegTijd">Bij de tijd kunt u de begin en eindtijd aflezen</string>   
+    <string name="uitlegLocatie">Bij de locatie kunt u de locatie van de act aflezen</string>       
+    <string name="uitlegGenre">Bij het genre kunt u het genre van de act aflezen</string>   
+    <string name="uitlegRating">Bij de rating kunt u het aantal ratings aflezen</string>  
+    <string name="uitlegInfo">Bij de info kunt u informatie over de act aflezen</string>  
+    <string name="uitlegHart">De hart knop. Met een klik kunt u een rating uitbrengen</string>
+    
+    <!-- Einde Lisa -->
 
 </resources>

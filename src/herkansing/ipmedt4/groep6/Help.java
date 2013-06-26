@@ -12,7 +12,8 @@ import android.widget.ImageView;
  * @author Lisa Uiterwijk
  * @version 1.0
  * 
- * De help, hier worden de verschillende functionaliteiten en weergaves in de applicatie uitgelegd
+ * De help pagina, waarbinnen terug gegaan kan naar de evenementen pagina. In de help.xml is de tekst
+ * d.m.v. strings.xml hardcoded weergegeven, omdat ik geen tijd meer had dit te doen via de database
  
  */
 
@@ -25,7 +26,7 @@ public class Help extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.help);
 		
-		// als er geklikt wordt gaat gebruiker terug naar de home
+		// als er geklikt wordt gaat gebruiker terug naar de home/evenementen pagina
 		
 		ImageView imgview1 = (ImageView)findViewById(R.id.ImageView01);
         imgview1.setOnClickListener(new View.OnClickListener() {
@@ -37,9 +38,6 @@ public class Help extends Activity
                 startActivity(intent);
              	}
          	});
-	}
-	
-
-	
+	}	
 	
 } // Einde Lisa

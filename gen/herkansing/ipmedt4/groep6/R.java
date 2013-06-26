@@ -47,35 +47,44 @@ public final class R {
         public static final int ImageView02=0x7f080003;
         public static final int RL1=0x7f080000;
         public static final int Tv2=0x7f080007;
-        public static final int action_settings=0x7f080020;
-        public static final int begintijd=0x7f080016;
-        public static final int button1=0x7f080014;
+        public static final int Tv3=0x7f08000c;
+        public static final int Tv4=0x7f08000d;
+        public static final int Tv5=0x7f08000f;
+        public static final int Tv6=0x7f080011;
+        public static final int Tv7=0x7f080013;
+        public static final int Tv8=0x7f080015;
+        public static final int Tv9=0x7f080017;
+        public static final int action_settings=0x7f080029;
+        public static final int begintijd=0x7f08001f;
+        public static final int button1=0x7f08001d;
         public static final int dezePagina=0x7f08000a;
         public static final int editText1=0x7f080002;
-        public static final int eindtijd=0x7f080017;
-        public static final int genre=0x7f080012;
+        public static final int eindtijd=0x7f080020;
+        public static final int genre=0x7f08001b;
         public static final int help=0x7f080009;
-        public static final int imageButton1=0x7f080011;
-        public static final int imageButton2=0x7f08001d;
+        public static final int imageButton1=0x7f08001a;
+        public static final int imageButton2=0x7f080026;
         public static final int imageButton6=0x7f080005;
         public static final int imageView1=0x7f080008;
-        public static final int info=0x7f080015;
-        public static final int locatie=0x7f080018;
-        public static final int naam=0x7f08000b;
-        public static final int rating=0x7f080013;
+        public static final int imageView3=0x7f08000b;
+        public static final int imageView4=0x7f080016;
+        public static final int info=0x7f08001e;
+        public static final int locatie=0x7f080021;
+        public static final int naam=0x7f080018;
+        public static final int rating=0x7f08001c;
         public static final int relativeLayout1=0x7f080004;
-        public static final int relativeLayout2=0x7f08001e;
-        public static final int relativeLayout3=0x7f08001f;
+        public static final int relativeLayout2=0x7f080027;
+        public static final int relativeLayout3=0x7f080028;
         public static final int textView1=0x7f080001;
-        public static final int textView2=0x7f08000c;
-        public static final int textView3=0x7f08000d;
-        public static final int textView4=0x7f08000e;
-        public static final int textView5=0x7f08000f;
-        public static final int textView6=0x7f080010;
-        public static final int textView7=0x7f08001c;
-        public static final int textView8=0x7f08001a;
-        public static final int textView9=0x7f08001b;
-        public static final int webView1=0x7f080019;
+        public static final int textView2=0x7f08000e;
+        public static final int textView3=0x7f080010;
+        public static final int textView4=0x7f080012;
+        public static final int textView5=0x7f080014;
+        public static final int textView6=0x7f080019;
+        public static final int textView7=0x7f080025;
+        public static final int textView8=0x7f080023;
+        public static final int textView9=0x7f080024;
+        public static final int webView1=0x7f080022;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -96,11 +105,21 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int hello_world=0x7f050002;
         /**  Lisa: onderstaande betreft de informatie van de knop als 
-    de informatie van de text in de AlertDialog 
+    de informatie van de text in de Dialog 
          */
         public static final int knop_werking=0x7f050003;
         public static final int knop_werking_text=0x7f050004;
         public static final int knop_werking_text1=0x7f050005;
+        public static final int uitlegGenre=0x7f05000a;
+        public static final int uitlegHart=0x7f05000d;
+        public static final int uitlegHelp=0x7f050007;
+        /**  Lisa: hieronder betreft de tekst naast hetgeen waarover uitleg word gegeven op de Help pagina 
+         */
+        public static final int uitlegHome=0x7f050006;
+        public static final int uitlegInfo=0x7f05000c;
+        public static final int uitlegLocatie=0x7f050009;
+        public static final int uitlegRating=0x7f05000b;
+        public static final int uitlegTijd=0x7f050008;
     }
     public static final class style {
         /** 
