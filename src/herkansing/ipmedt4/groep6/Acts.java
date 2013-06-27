@@ -185,7 +185,7 @@ public class Acts extends Activity
 	                    width, height);
 	            //rlp1.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 	            rlp1.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-	            rlp1.topMargin = 100;
+	            rlp1.topMargin = 140;
 	            rlp1.bottomMargin = 10;
 	            button.setLayoutParams(rlp1);
 	            rl.addView(button, rlp1); 
