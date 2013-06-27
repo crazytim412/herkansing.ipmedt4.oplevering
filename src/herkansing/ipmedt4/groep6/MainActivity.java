@@ -16,6 +16,8 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
@@ -66,6 +68,7 @@ public class MainActivity extends Activity
 	
 	// Lisa
 	private Dialog myDialog;
+	private MediaPlayer mp;	
 	// Einde Lisa
 	
 	// Duncan
@@ -92,6 +95,18 @@ public class MainActivity extends Activity
         
         	 @Override
              public void onClick(View v) {
+        		// Lisa: geluid voor de button als er geklikt word
+				 mp = MediaPlayer.create(MainActivity.this, R.raw.klik);
+	             mp.setOnCompletionListener(new OnCompletionListener() {
+
+	                 public void onCompletion(MediaPlayer mp) {
+	                     // TODO Auto-generated method stub
+	                     mp.release();
+	                 }
+
+	             });   
+	             mp.start();
+	             // Einde Lisa 
                 Intent intent = new Intent();
                 intent.setClass(getApplicationContext(), Help.class);
                 startActivity(intent);
@@ -100,12 +115,26 @@ public class MainActivity extends Activity
 		
 		// Lisa: Dialog toegevoegd zodat de zoekknop die het niet doet, netjes afgehandeld word d.m.v.
 				// een Dialog. Gekozen voor een Dialog, zodat ik zelf de layout van de dialog kan bepalen.
-				
+			
         ImageButton myButton = (ImageButton)findViewById(R.id.imageButton6);        
         myButton.setOnClickListener(new OnClickListener() {        	 
         @Override
             public void onClick(View v) {
-	        	myDialog = new Dialog(MainActivity.this, R.style.FullHeightDialog); // maak nieuw myDialog aan
+	         
+        	//Lisa: geluid voor de button als er geklikt word
+        	 mp = MediaPlayer.create(MainActivity.this, R.raw.klik);
+             mp.setOnCompletionListener(new OnCompletionListener() {
+
+                 public void onCompletion(MediaPlayer mp) {
+                     // TODO Auto-generated method stub
+                     mp.release();
+                 }
+
+             });   
+             mp.start();      
+             
+        	//Lisa: de dialog aanmaak
+        	myDialog = new Dialog(MainActivity.this, R.style.FullHeightDialog); // maak nieuw myDialog aan
 	        																		// en haal de default titel weg
 	        	myDialog.setContentView(R.layout.dialogzoek);
 	        	myDialog.setCancelable(true);
@@ -113,6 +142,18 @@ public class MainActivity extends Activity
                 imageView.setOnClickListener(new OnClickListener() {
                 @Override
                     public void onClick(View v) {
+                	
+                	//Lisa: geluid dat je hoort als er op "Ok" word gedrukt
+                	mp = MediaPlayer.create(MainActivity.this, R.raw.terug);
+                    mp.setOnCompletionListener(new OnCompletionListener() {
+
+                        public void onCompletion(MediaPlayer mp) {
+                            // TODO Auto-generated method stub
+                            mp.release();
+                        }
+
+                    });   
+                    mp.start();
                 	myDialog.dismiss();
                     }
                 });
@@ -155,6 +196,19 @@ public class MainActivity extends Activity
 			@Override
 				public void onClick(View arg0) 
 				{
+				
+				// Lisa: geluid voor de button als er geklikt word
+				 mp = MediaPlayer.create(MainActivity.this, R.raw.klik);
+	             mp.setOnCompletionListener(new OnCompletionListener() {
+
+	                 public void onCompletion(MediaPlayer mp) {
+	                     // TODO Auto-generated method stub
+	                     mp.release();
+	                 }
+
+	             });   
+	             mp.start();
+	             // Einde Lisa
 				
 				// kijk welke button ingedrukt is
 				// Dit roept de goede query aan in de acts klasse

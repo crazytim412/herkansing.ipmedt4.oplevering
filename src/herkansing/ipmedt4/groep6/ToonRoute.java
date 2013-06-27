@@ -2,6 +2,8 @@ package herkansing.ipmedt4.groep6;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -24,6 +26,9 @@ import android.widget.TextView;
 
 public class ToonRoute extends Activity
 {
+	// Lisa
+	private MediaPlayer mp;	
+	// Einde Lisa
 	
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +39,17 @@ public class ToonRoute extends Activity
         
         	 @Override
              public void onClick(View v) {
+        		//Lisa: geluid dat je hoort als er op de home button word gedrukt
+             	mp = MediaPlayer.create(ToonRoute.this, R.raw.terug);
+                 mp.setOnCompletionListener(new OnCompletionListener() {
+
+                     public void onCompletion(MediaPlayer mp) {
+                         // TODO Auto-generated method stub
+                         mp.release();
+                     }
+
+                 });   
+                 mp.start();
                 Intent intent = new Intent();
                 intent.setClass(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
@@ -45,6 +61,17 @@ public class ToonRoute extends Activity
         
         	 @Override
              public void onClick(View v) {
+        		//Lisa: geluid voor de button als er geklikt word
+            	 mp = MediaPlayer.create(ToonRoute.this, R.raw.klik);
+                 mp.setOnCompletionListener(new OnCompletionListener() {
+
+                     public void onCompletion(MediaPlayer mp) {
+                         // TODO Auto-generated method stub
+                         mp.release();
+                     }
+
+                 });   
+                 mp.start();   
                 Intent intent = new Intent();
                 intent.setClass(getApplicationContext(), Help.class);
                 startActivity(intent);

@@ -22,6 +22,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -64,6 +66,7 @@ public class LosseActs extends Activity
     
     // Lisa
  	private Dialog myDialog;
+ 	private MediaPlayer mp;	
  	// Einde Lisa
     
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +95,17 @@ public class LosseActs extends Activity
         
         	 @Override
              public void onClick(View v) {
+        		//Lisa: geluid dat je hoort als er op de home button word gedrukt
+             	mp = MediaPlayer.create(LosseActs.this, R.raw.terug);
+                 mp.setOnCompletionListener(new OnCompletionListener() {
+
+                     public void onCompletion(MediaPlayer mp) {
+                         // TODO Auto-generated method stub
+                         mp.release();
+                     }
+
+                 });   
+                 mp.start();
                 Intent intent = new Intent();
                 intent.setClass(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
@@ -103,6 +117,17 @@ public class LosseActs extends Activity
         
         	 @Override
              public void onClick(View v) {
+        		//Lisa: geluid voor de button als er geklikt word
+            	 mp = MediaPlayer.create(LosseActs.this, R.raw.klik);
+                 mp.setOnCompletionListener(new OnCompletionListener() {
+
+                     public void onCompletion(MediaPlayer mp) {
+                         // TODO Auto-generated method stub
+                         mp.release();
+                     }
+
+                 });   
+                 mp.start();   
                 Intent intent = new Intent();
                 intent.setClass(getApplicationContext(), Help.class);
                 startActivity(intent);
@@ -116,6 +141,17 @@ public class LosseActs extends Activity
 		myButton.setOnClickListener(new OnClickListener() {        	 
 		@Override
 		    public void onClick(View v) {
+			//Lisa: geluid voor de button als er geklikt word
+			mp = MediaPlayer.create(LosseActs.this, R.raw.klik);
+            mp.setOnCompletionListener(new OnCompletionListener() {
+
+                public void onCompletion(MediaPlayer mp) {
+                    // TODO Auto-generated method stub
+                    mp.release();
+                }
+
+            });   
+            mp.start();   
 		    	myDialog = new Dialog(LosseActs.this, R.style.FullHeightDialog); // maak nieuw myDialog aan
 		    																		// en haal de default titel weg
 		    	myDialog.setContentView(R.layout.dialograte);
@@ -124,6 +160,17 @@ public class LosseActs extends Activity
 		        imageView.setOnClickListener(new OnClickListener() {
 		        @Override
 		            public void onClick(View v) {
+		        	//Lisa: geluid dat je hoort als er op "Ok" word gedrukt
+                	mp = MediaPlayer.create(LosseActs.this, R.raw.terug);
+                    mp.setOnCompletionListener(new OnCompletionListener() {
+
+                        public void onCompletion(MediaPlayer mp) {
+                            // TODO Auto-generated method stub
+                            mp.release();
+                        }
+
+                    });   
+                    mp.start();
 		        	myDialog.dismiss();
 		            }
 		        });
@@ -138,6 +185,17 @@ public class LosseActs extends Activity
 
             @Override
             public void onClick(View v) {
+            	//Lisa: geluid voor de button als er geklikt word
+           	 	mp = MediaPlayer.create(LosseActs.this, R.raw.klik);
+                mp.setOnCompletionListener(new OnCompletionListener() {
+
+                    public void onCompletion(MediaPlayer mp) {
+                        // TODO Auto-generated method stub
+                        mp.release();
+                    }
+
+                });   
+                mp.start();   
                Intent intent = new Intent();
              intent.setClass(getApplicationContext(), ToonKaart.class);
               startActivity(intent);

@@ -2,6 +2,8 @@ package herkansing.ipmedt4.groep6;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
@@ -21,7 +23,10 @@ import android.widget.ImageView;
 
 public class ToonKaart extends Activity
 {
-
+	//Lisa
+	private MediaPlayer mp;	
+	// Einde Lisa
+	
 	// Een webview is een ingebouwde methode om een browser te laten zien binnen in de app
 	
     WebView webView;
@@ -39,6 +44,17 @@ public class ToonKaart extends Activity
         
         	 @Override
              public void onClick(View v) {
+        		//Lisa: geluid dat je hoort als er op de home button word gedrukt
+             	mp = MediaPlayer.create(ToonKaart.this, R.raw.terug);
+                 mp.setOnCompletionListener(new OnCompletionListener() {
+
+                     public void onCompletion(MediaPlayer mp) {
+                         // TODO Auto-generated method stub
+                         mp.release();
+                     }
+
+                 });   
+                 mp.start();
                 Intent intent = new Intent();
                 intent.setClass(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
