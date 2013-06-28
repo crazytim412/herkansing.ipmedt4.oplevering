@@ -13,7 +13,7 @@ import android.widget.ImageView;
  * 
  * @author Robin van der Harst
  * @author Lisa Uiterwijk
- * @version 1.0
+ * @version 2.0
  * 
  * roept de webview aan naar Google Maps
  *
@@ -40,32 +40,34 @@ public class ToonKaart extends Activity
         // gegaan kan naar de home pagina. Dit was eerst niet mogelijk, nu wel.
         
         ImageView imgview1 = (ImageView)findViewById(R.id.ImageView01);
-        imgview1.setOnClickListener(new View.OnClickListener() {
-        
+        imgview1.setOnClickListener(new View.OnClickListener() 
+        {        
         	 @Override
-             public void onClick(View v) {
+             public void onClick(View v) 
+        	 {
         		//Lisa: geluid dat je hoort als er op de home button word gedrukt
              	mp = MediaPlayer.create(ToonKaart.this, R.raw.terug);
-                 mp.setOnCompletionListener(new OnCompletionListener() {
-
-                     public void onCompletion(MediaPlayer mp) {
-                         // TODO Auto-generated method stub
-                         mp.release();
-                     }
+                mp.setOnCompletionListener(new OnCompletionListener() 
+                {
+                    public void onCompletion(MediaPlayer mp) 
+                    {
+                        // TODO Auto-generated method stub
+                        mp.release();
+                    }
 
                  });   
                  mp.start();
-                Intent intent = new Intent();
-                intent.setClass(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-             	}
-         	}); 
+                 Intent intent = new Intent();
+                 intent.setClass(getApplicationContext(), MainActivity.class);
+                 startActivity(intent);
+             }
+         }); 
         
                
-        // Vindt de webview in de XML
+         // Vindt de webview in de XML
         
-        // Lisa: hij laat ook de sateliet weergave van Google Maps zien
-        //einde Lisa
+         // Lisa: hij laat ook de sateliet weergave van Google Maps zien
+         // Einde Lisa
         
         //Robin
         
@@ -82,5 +84,5 @@ public class ToonKaart extends Activity
 		webView.loadUrl("http://www.evenementenmail.nl/maps.php");
          }
     
-    //einde robin
+    //Einde robin
 }

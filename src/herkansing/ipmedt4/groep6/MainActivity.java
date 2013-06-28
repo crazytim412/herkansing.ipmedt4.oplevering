@@ -40,7 +40,7 @@ import android.widget.TextView;
  *
  * @author Duncan Pronk
  * @author Lisa Uiterwijk
- * @version 1.0
+ * @version 2.0
  * 
  * De main activity, hier worden de events ingeladen
  * en in knoppen laten zien
@@ -91,15 +91,18 @@ public class MainActivity extends Activity
 		
 		//Lisa: om naar de Help pagina te gaan
 		ImageView imgview2 = (ImageView)findViewById(R.id.ImageView02);
-        imgview2.setOnClickListener(new View.OnClickListener() {
-        
-        	 @Override
-             public void onClick(View v) {
+        imgview2.setOnClickListener(new View.OnClickListener() 
+        {
+           	 @Override
+             public void onClick(View v) 
+           	 {
         		// Lisa: geluid voor de button als er geklikt word
 				 mp = MediaPlayer.create(MainActivity.this, R.raw.klik);
-	             mp.setOnCompletionListener(new OnCompletionListener() {
+	             mp.setOnCompletionListener(new OnCompletionListener() 
+	             {
 
-	                 public void onCompletion(MediaPlayer mp) {
+	                 public void onCompletion(MediaPlayer mp) 
+	                 {
 	                     // TODO Auto-generated method stub
 	                     mp.release();
 	                 }
@@ -107,25 +110,28 @@ public class MainActivity extends Activity
 	             });   
 	             mp.start();
 	             // Einde Lisa 
-                Intent intent = new Intent();
-                intent.setClass(getApplicationContext(), Help.class);
-                startActivity(intent);
-             	}
-         	});
+                 Intent intent = new Intent();
+                 intent.setClass(getApplicationContext(), Help.class);
+                 startActivity(intent);
+             }
+         });
 		
 		// Lisa: Dialog toegevoegd zodat de zoekknop die het niet doet, netjes afgehandeld word d.m.v.
 				// een Dialog. Gekozen voor een Dialog, zodat ik zelf de layout van de dialog kan bepalen.
 			
         ImageButton myButton = (ImageButton)findViewById(R.id.imageButton6);        
-        myButton.setOnClickListener(new OnClickListener() {        	 
+        myButton.setOnClickListener(new OnClickListener() 
+        {        	 
         @Override
-            public void onClick(View v) {
+            public void onClick(View v) 
+        	{
 	         
         	//Lisa: geluid voor de button als er geklikt word
         	 mp = MediaPlayer.create(MainActivity.this, R.raw.klik);
-             mp.setOnCompletionListener(new OnCompletionListener() {
-
-                 public void onCompletion(MediaPlayer mp) {
+             mp.setOnCompletionListener(new OnCompletionListener() 
+             {
+                 public void onCompletion(MediaPlayer mp) 
+                 {
                      // TODO Auto-generated method stub
                      mp.release();
                  }
@@ -139,15 +145,19 @@ public class MainActivity extends Activity
 	        	myDialog.setContentView(R.layout.dialogzoek);
 	        	myDialog.setCancelable(true);
                 ImageView imageView = (ImageView)myDialog.findViewById(R.id.imageView1);
-                imageView.setOnClickListener(new OnClickListener() {
+                imageView.setOnClickListener(new OnClickListener() 
+                {
                 @Override
-                    public void onClick(View v) {
+                    public void onClick(View v) 
+                	{
                 	
                 	//Lisa: geluid dat je hoort als er op "Ok" word gedrukt
                 	mp = MediaPlayer.create(MainActivity.this, R.raw.terug);
-                    mp.setOnCompletionListener(new OnCompletionListener() {
+                    mp.setOnCompletionListener(new OnCompletionListener() 
+                    {
 
-                        public void onCompletion(MediaPlayer mp) {
+                        public void onCompletion(MediaPlayer mp) 
+                        {
                             // TODO Auto-generated method stub
                             mp.release();
                         }
@@ -156,8 +166,7 @@ public class MainActivity extends Activity
                     mp.start();
                 	myDialog.dismiss();
                     }
-                });
- 
+                }); 
                 myDialog.show();
             }
         });
@@ -192,16 +201,19 @@ public class MainActivity extends Activity
 	        
 	        
 	        
-	        button.setOnClickListener(new Button.OnClickListener() {
+	        button.setOnClickListener(new Button.OnClickListener() 
+	        {
 			@Override
 				public void onClick(View arg0) 
 				{
 				
 				// Lisa: geluid voor de button als er geklikt word
 				 mp = MediaPlayer.create(MainActivity.this, R.raw.klik);
-	             mp.setOnCompletionListener(new OnCompletionListener() {
+	             mp.setOnCompletionListener(new OnCompletionListener() 
+	             {
 
-	                 public void onCompletion(MediaPlayer mp) {
+	                 public void onCompletion(MediaPlayer mp) 
+	                 {
 	                     // TODO Auto-generated method stub
 	                     mp.release();
 	                 }
@@ -236,7 +248,9 @@ public class MainActivity extends Activity
 	                    width, height);
 	            //rlp1.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 	            rlp1.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-	            rlp1.topMargin = 140;
+	            rlp1.topMargin = 140; // Lisa: op 140 gezet ipv 100 zodat er genoeg speling zit voor de 
+	            					  // knoppen en het zoekveld en de zoekknop
+	            				      // Einde Lisa
 	            rlp1.bottomMargin = 10;
 	            button.setLayoutParams(rlp1);
 	            rl.addView(button, rlp1); 

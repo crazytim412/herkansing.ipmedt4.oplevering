@@ -39,7 +39,7 @@ import android.widget.TextView;
  * @author Duncan Pronk
  * @author Lisa Uiterwijk
  * @author Deborah Tjin
- * @version 1.0
+ * @version 2.0
  * 
  * hierin worden alle acts gemaakt.
  *
@@ -86,21 +86,24 @@ public class Acts extends Activity
 		
 		// Lisa: om terug te gaan naar de home pagina
 		ImageView imgview1 = (ImageView)findViewById(R.id.ImageView01);
-        imgview1.setOnClickListener(new View.OnClickListener() {
+        imgview1.setOnClickListener(new View.OnClickListener() 
+        {
         
         	 @Override
-             public void onClick(View v) {
+             public void onClick(View v) 
+        	 {
         		//Lisa: geluid dat je hoort als er op de home button word gedrukt
              	mp = MediaPlayer.create(Acts.this, R.raw.terug);
-                 mp.setOnCompletionListener(new OnCompletionListener() {
-
-                     public void onCompletion(MediaPlayer mp) {
+                mp.setOnCompletionListener(new OnCompletionListener() 
+                {
+                     public void onCompletion(MediaPlayer mp) 
+                     {
                          // TODO Auto-generated method stub
                          mp.release();
                      }
 
                  });   
-                 mp.start();
+                mp.start();
                 Intent intent = new Intent();
                 intent.setClass(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
@@ -108,15 +111,18 @@ public class Acts extends Activity
          	});
         //Lisa: om naar de Help pagina te gaan
         ImageView imgview2 = (ImageView)findViewById(R.id.ImageView02);
-        imgview2.setOnClickListener(new View.OnClickListener() {
-        
-        	 @Override
-             public void onClick(View v) {
+        imgview2.setOnClickListener(new View.OnClickListener() 
+        {
+           	 @Override
+             public void onClick(View v) 
+           	 {
         		// Lisa: geluid voor de button als er geklikt word
 				 mp = MediaPlayer.create(Acts.this, R.raw.klik);
-	             mp.setOnCompletionListener(new OnCompletionListener() {
+	             mp.setOnCompletionListener(new OnCompletionListener() 
+	             {
 
-	                 public void onCompletion(MediaPlayer mp) {
+	                 public void onCompletion(MediaPlayer mp) 
+	                 {
 	                     // TODO Auto-generated method stub
 	                     mp.release();
 	                 }
@@ -136,15 +142,17 @@ public class Acts extends Activity
 		// een Dialog. Gekozen voor een Dialog, zodat ik zelf de layout van de dialog kan bepalen.
 		
 		ImageButton myButton = (ImageButton)findViewById(R.id.imageButton6);        
-		myButton.setOnClickListener(new OnClickListener() {        	 
+		myButton.setOnClickListener(new OnClickListener() 
+		{        	 
 		@Override
-		    public void onClick(View v) {
-			
+		    public void onClick(View v) 
+		{
 			// Lisa: geluid voor de button als er geklikt word
 			mp = MediaPlayer.create(Acts.this, R.raw.klik);
-            mp.setOnCompletionListener(new OnCompletionListener() {
-
-                public void onCompletion(MediaPlayer mp) {
+            mp.setOnCompletionListener(new OnCompletionListener() 
+            {
+                public void onCompletion(MediaPlayer mp) 
+                {
                     // TODO Auto-generated method stub
                     mp.release();
                 }
@@ -158,14 +166,18 @@ public class Acts extends Activity
 		    	myDialog.setContentView(R.layout.dialogzoek);
 		    	myDialog.setCancelable(true);
 		        ImageView imageView = (ImageView)myDialog.findViewById(R.id.imageView1);
-		        imageView.setOnClickListener(new OnClickListener() {
+		        imageView.setOnClickListener(new OnClickListener() 
+		        {
 		        @Override
-		            public void onClick(View v) {
+		            public void onClick(View v) 
+		        {
 		        	//Lisa: geluid dat je hoort als er op "Ok" word gedrukt
                 	mp = MediaPlayer.create(Acts.this, R.raw.terug);
-                    mp.setOnCompletionListener(new OnCompletionListener() {
+                    mp.setOnCompletionListener(new OnCompletionListener() 
+                    {
 
-                        public void onCompletion(MediaPlayer mp) {
+                        public void onCompletion(MediaPlayer mp) 
+                        {
                             // TODO Auto-generated method stub
                             mp.release();
                         }
@@ -208,15 +220,18 @@ public class Acts extends Activity
 	       
 	        // handel de button pressed af
 	       
-	        button.setOnClickListener(new Button.OnClickListener() {
+	        button.setOnClickListener(new Button.OnClickListener() 
+	        {
 			@Override
 				public void onClick(View arg0) 
-				{		
-				// Lisa: geluid voor de button als er geklikt word
+				{
+				 // Lisa: geluid voor de button als er geklikt word
 				 mp = MediaPlayer.create(Acts.this, R.raw.klik);
-	             mp.setOnCompletionListener(new OnCompletionListener() {
+	             mp.setOnCompletionListener(new OnCompletionListener() 
+	             {
 
-	                 public void onCompletion(MediaPlayer mp) {
+	                 public void onCompletion(MediaPlayer mp) 
+	                 {
 	                     // TODO Auto-generated method stub
 	                     mp.release();
 	                 }
@@ -249,7 +264,9 @@ public class Acts extends Activity
 	                    width, height);
 	            //rlp1.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 	            rlp1.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-	            rlp1.topMargin = 140;
+	            rlp1.topMargin = 140; // Lisa: op 140 gezet ipv 100 zodat er genoeg speling zit voor de 
+	            					  // knoppen en het zoekveld en de zoekknop
+	            				      // Einde Lisa
 	            rlp1.bottomMargin = 10;
 	            button.setLayoutParams(rlp1);
 	            rl.addView(button, rlp1); 

@@ -12,7 +12,7 @@ import android.widget.ImageView;
  * 
  *
  * @author Lisa Uiterwijk
- * @version 1.0
+ * @version 2.0
  * 
  * De help pagina, waarbinnen terug gegaan kan naar de evenementen pagina. In de help.xml is de tekst
  * d.m.v. strings.xml hardcoded weergegeven, omdat ik geen tijd meer had dit te doen via de database
@@ -33,21 +33,24 @@ public class Help extends Activity
 		// als er geklikt wordt gaat gebruiker terug naar de home/evenementen pagina
 		
 		ImageView imgview1 = (ImageView)findViewById(R.id.ImageView01);
-        imgview1.setOnClickListener(new View.OnClickListener() {
-        
-        	 @Override
-             public void onClick(View v) {
+        imgview1.setOnClickListener(new View.OnClickListener() 
+        {
+           	 @Override
+             public void onClick(View v) 
+           	 {
         		//Lisa: geluid dat je hoort als er op de home button word gedrukt
              	mp = MediaPlayer.create(Help.this, R.raw.terug);
-                 mp.setOnCompletionListener(new OnCompletionListener() {
+                 mp.setOnCompletionListener(new OnCompletionListener() 
+                 {
 
-                     public void onCompletion(MediaPlayer mp) {
+                     public void onCompletion(MediaPlayer mp) 
+                     {
                          // TODO Auto-generated method stub
                          mp.release();
                      }
 
                  });   
-                 mp.start();
+                mp.start();
                 Intent intent = new Intent();
                 intent.setClass(getApplicationContext(), MainActivity.class);
                 startActivity(intent);

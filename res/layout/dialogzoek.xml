@@ -3,6 +3,10 @@
 	 android:background="#A3DFBB"
 	 android:layout_width="wrap_content"
 	 android:layout_height="70dp">
+	 
+<!--  Lisa: onderstaande code bevat de inhoud en connectie met de strings.xml, wat het mogelijk maakt om de
+gebruiker een dialoog te laten zien indien er gedrukt word op de zoek knop
+Dit is gedaan aan de hand van TextViews en ImageViews en alomvattend in een RelativeLayout -->     
   
 	 <TextView 
 	     android:id="@+id/Tv2"

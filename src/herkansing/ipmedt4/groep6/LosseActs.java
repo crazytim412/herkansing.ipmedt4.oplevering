@@ -40,7 +40,7 @@ import android.widget.TextView;
  * @author Duncan Pronk
  * @author Lisa Uiterwijk
  * @author Deborah Tjin
- * @version 1.0
+ * @version 2.0
  * 
  * hierin worden alle acts gemaakt.
  *
@@ -91,21 +91,25 @@ public class LosseActs extends Activity
         // Kijk welke imageview wordt ingedrukt
         
         ImageView imgview1 = (ImageView)findViewById(R.id.ImageView01);
-        imgview1.setOnClickListener(new View.OnClickListener() {
+        imgview1.setOnClickListener(new View.OnClickListener() 
+        {
         
         	 @Override
-             public void onClick(View v) {
+             public void onClick(View v) 
+        	 {
         		//Lisa: geluid dat je hoort als er op de home button word gedrukt
              	mp = MediaPlayer.create(LosseActs.this, R.raw.terug);
-                 mp.setOnCompletionListener(new OnCompletionListener() {
+                 mp.setOnCompletionListener(new OnCompletionListener() 
+                 {
 
-                     public void onCompletion(MediaPlayer mp) {
+                     public void onCompletion(MediaPlayer mp) 
+                     {
                          // TODO Auto-generated method stub
                          mp.release();
                      }
 
                  });   
-                 mp.start();
+                mp.start();
                 Intent intent = new Intent();
                 intent.setClass(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
@@ -113,21 +117,25 @@ public class LosseActs extends Activity
          	});
         
         ImageView imgview2 = (ImageView)findViewById(R.id.ImageView02);
-        imgview2.setOnClickListener(new View.OnClickListener() {
+        imgview2.setOnClickListener(new View.OnClickListener() 
+        {
         
         	 @Override
-             public void onClick(View v) {
+             public void onClick(View v) 
+        	 {
         		//Lisa: geluid voor de button als er geklikt word
             	 mp = MediaPlayer.create(LosseActs.this, R.raw.klik);
-                 mp.setOnCompletionListener(new OnCompletionListener() {
+                 mp.setOnCompletionListener(new OnCompletionListener() 
+                 {
 
-                     public void onCompletion(MediaPlayer mp) {
+                     public void onCompletion(MediaPlayer mp) 
+                     {
                          // TODO Auto-generated method stub
                          mp.release();
                      }
 
                  });   
-                 mp.start();   
+                mp.start();   
                 Intent intent = new Intent();
                 intent.setClass(getApplicationContext(), Help.class);
                 startActivity(intent);
@@ -138,14 +146,18 @@ public class LosseActs extends Activity
 		// een Dialog. Gekozen voor een Dialog, zodat ik zelf de layout van de dialog kan bepalen.
 		
 		ImageButton myButton = (ImageButton)findViewById(R.id.imageButton1);        
-		myButton.setOnClickListener(new OnClickListener() {        	 
-		@Override
-		    public void onClick(View v) {
+		myButton.setOnClickListener(new OnClickListener() 
+		{        	 
+		    @Override
+		    public void onClick(View v) 
+		    {
 			//Lisa: geluid voor de button als er geklikt word
 			mp = MediaPlayer.create(LosseActs.this, R.raw.klik);
-            mp.setOnCompletionListener(new OnCompletionListener() {
+            mp.setOnCompletionListener(new OnCompletionListener() 
+            {
 
-                public void onCompletion(MediaPlayer mp) {
+                public void onCompletion(MediaPlayer mp) 
+                {
                     // TODO Auto-generated method stub
                     mp.release();
                 }
@@ -157,21 +169,25 @@ public class LosseActs extends Activity
 		    	myDialog.setContentView(R.layout.dialograte);
 		    	myDialog.setCancelable(true);
 		        ImageView imageView = (ImageView)myDialog.findViewById(R.id.imageView1);
-		        imageView.setOnClickListener(new OnClickListener() {
-		        @Override
-		            public void onClick(View v) {
-		        	//Lisa: geluid dat je hoort als er op "Ok" word gedrukt
-                	mp = MediaPlayer.create(LosseActs.this, R.raw.terug);
-                    mp.setOnCompletionListener(new OnCompletionListener() {
-
-                        public void onCompletion(MediaPlayer mp) {
-                            // TODO Auto-generated method stub
-                            mp.release();
-                        }
-
-                    });   
-                    mp.start();
-		        	myDialog.dismiss();
+		        imageView.setOnClickListener(new OnClickListener() 
+		        {
+		        	@Override
+		            public void onClick(View v) 
+		        	{
+			        	//Lisa: geluid dat je hoort als er op "Ok" word gedrukt
+	                	mp = MediaPlayer.create(LosseActs.this, R.raw.terug);
+	                    mp.setOnCompletionListener(new OnCompletionListener() 
+	                    {
+	
+	                        public void onCompletion(MediaPlayer mp) 
+	                        {
+	                            // TODO Auto-generated method stub
+	                            mp.release();
+	                        }
+	
+	                    });   
+	                    mp.start();
+			        	myDialog.dismiss();
 		            }
 		        });
 		
@@ -181,24 +197,28 @@ public class LosseActs extends Activity
 		// Einde Lisa
        
        Button toonkaart = (Button)findViewById(R.id.button1);
-       toonkaart.setOnClickListener(new View.OnClickListener() {
+       toonkaart.setOnClickListener(new View.OnClickListener() 
+       {
 
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) 
+            {
             	//Lisa: geluid voor de button als er geklikt word
            	 	mp = MediaPlayer.create(LosseActs.this, R.raw.klik);
-                mp.setOnCompletionListener(new OnCompletionListener() {
+                mp.setOnCompletionListener(new OnCompletionListener() 
+                {
 
-                    public void onCompletion(MediaPlayer mp) {
+                    public void onCompletion(MediaPlayer mp) 
+                    {
                         // TODO Auto-generated method stub
                         mp.release();
                     }
 
                 });   
                 mp.start();   
-               Intent intent = new Intent();
-             intent.setClass(getApplicationContext(), ToonKaart.class);
-              startActivity(intent);
+                Intent intent = new Intent();
+                intent.setClass(getApplicationContext(), ToonKaart.class);
+              	startActivity(intent);
             	}
         	});
        
@@ -235,7 +255,8 @@ public class LosseActs extends Activity
 	{
 
 		@Override
-		protected void onPreExecute() {
+		protected void onPreExecute() 
+		{
 			
 			super.onPreExecute();
 			
@@ -286,27 +307,34 @@ public class LosseActs extends Activity
 				is = entity.getContent();
 
 
-			}catch(Exception e){
+			}
+			catch(Exception e)
+			{
 				Log.e("log_tag", "Error in http connection "+e.toString());
 			}
 
 
 			//convert response to string
-			try{
+			try
+			{
 				BufferedReader reader = new BufferedReader(new InputStreamReader(is,"iso-8859-1"),8);
 				StringBuilder sb = new StringBuilder();
 				String line = null;
-				while ((line = reader.readLine()) != null) {
+				while ((line = reader.readLine()) != null) 
+				{
 					sb.append(line + "\n");
 				}
 				is.close();
 				result=sb.toString();
-			}catch(Exception e){
+			}
+			catch(Exception e)
+			{
 				Log.e("log_tag", "Error converting result "+e.toString());
 			}
 			//parse json data
 			String returnString = "";
-			try{
+			try
+			{
 				jArray = new JSONArray(result);
 				for(int i=0;i<jArray.length();i++)
 				{
@@ -315,22 +343,28 @@ public class LosseActs extends Activity
 					
 					//Get an output to the screen					
 				}
-			}catch(JSONException e){
+			}
+			catch(JSONException e)
+			{
 				Log.e("log_tag", "Error parsing data "+e.toString());
 			}
 			return returnString;
 		}  
 	
 		@Override
-		protected void onPostExecute(String result) {
+		protected void onPostExecute(String result) 
+		{
 			super.onPostExecute(result);
 			
 			result = result.trim();
 			
-			if (jArray != null) { 
+			if (jArray != null) 
+			{ 
 				   int len = jArray.length();
-				   for (int i=0;i<len;i++){ 
-				    try {
+				   for (int i=0;i<len;i++)
+				   { 
+				    try 
+				    {
 				    	String ajb = jArray.get(i).toString();
 				    	String aub = ajb.replace("{", "");
 				    	aub = aub.replace("}", "");

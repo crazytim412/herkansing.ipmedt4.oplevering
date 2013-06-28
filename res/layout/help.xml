@@ -5,6 +5,10 @@
     android:layout_height="fill_parent"
     android:fillViewport="true">
     
+<!--  Lisa: onderstaande code bevat inhoud weergegeven als tekst, wat het mogelijk maakt voor de
+gebruiker om uitleg te krijgen betreft de applicatie, indien er gedrukt word op de help knop
+Dit is gedaan aan de hand van TextViews en ImageViews en alomvattend in een RelativeLayout en ScrollView -->     
+    
    <!-- 
    Lisa
    
